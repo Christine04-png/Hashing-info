@@ -2,6 +2,6 @@
 
 
 //connection to database 
-$conn = mysqli_connect("localhost","root","","test1");
+$conn = mysqli_connect("localhost","root","","witwew");
 
 ?>
