@@ -34,6 +34,10 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.header-left { display: flex; align-items: center; }
+.header-left img { height: 40px; margin-right: 10px; }
+.header-left h1 { font-size: 20px; margin: 0; }
+
 
 /* LOGOUT BUTTON */
 .logout {
@@ -146,8 +150,12 @@ body {
 <body>
 
 <div class="header">
+    <div class="header-left">
+        <img src="ww.png" alt="ww.png">
+        <h1>Mini Shop</h1>
+    </div>
     <h1>Admin Dashboard</h1>
-    <a class="logout" href="login.php">Logout</a>
+    <a class="logout" href="../logout.php">Logout</a>
 </div>
 
 <div class="main-container">
@@ -155,10 +163,10 @@ body {
     <!-- Sidebar -->
     <div class="sidebar">
         <h2>Menu</h2>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="products.php">Products</a>
-        <a href="#">Orders</a>
-        <a href="user.php">Users</a>
+        <a href="/HASHING-INFO/admin/dashboard.php">Dashboard</a>
+        <a href="/HASHING-INFO/admin/products.php">Products</a>
+        <a href="/HASHING-INFO/admin/orders.php">Orders</a>
+        <a href="/HASHING-INFO/admin/user_admin.php">Users</a>
     </div>
 
     <!-- Content Area -->
@@ -171,19 +179,19 @@ body {
             <div class="card">
                 <h3>Products</h3>
                 <p>Manage your products</p>
-                <a href="products.php">Open</a>
+                <a href="/HASHING-INFO/admin/products.php">Open</a>
             </div>
 
             <div class="card">
                 <h3>Orders</h3>
                 <p>View recent orders</p>
-                <a href="#">Open</a>
+                <a href="/HASHING-INFO/admin/orders.php">Open</a>
             </div>
 
             <div class="card">
                 <h3>Users</h3>
                 <p>Manage registered users</p>
-                <a href="user.php">Open</a>
+                <a href="/HASHING-INFO/admin/user_admin.php">Open</a>
             </div>
         </div>
 

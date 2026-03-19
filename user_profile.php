@@ -36,10 +36,17 @@ if(isset($_POST['update_email'])){
 
 // Handle Password Update
 if(isset($_POST['update_pass'])){
-    $new_pass = mysqli_real_escape_string($conn, $_POST['pass']);
-    $hash_pass = password_hash($new_pass, PASSWORD_BCRYPT);
-    mysqli_query($conn, "UPDATE accounts SET password='$hash_pass' WHERE email='$user_email_hash'");
-    echo "<script>alert('Password updated successfully'); window.location.href='user_profile.php';</script>";
+    $current_pass = $_POST['current_pass'];
+    $new_pass = $_POST['new_pass'];
+
+    // Verify current password
+    if(password_verify($current_pass, $user['password'])){
+        $hash_pass = password_hash($new_pass, PASSWORD_BCRYPT);
+        mysqli_query($conn, "UPDATE accounts SET password='$hash_pass' WHERE email='$user_email_hash'");
+        echo "<script>alert('Password updated successfully'); window.location.href='user_profile.php';</script>";
+    } else {
+        echo "<script>alert('Current password is incorrect');</script>";
+    }
 }
 ?>
 
@@ -94,7 +101,8 @@ h3 { margin:10px 0; }
     <div class="card">
         <h3>Change Password</h3>
         <form method="POST">
-            <input type="password" name="pass" placeholder="Enter new password" required>
+            <input type="password" name="current_pass" placeholder="Enter current password" required>
+            <input type="password" name="new_pass" placeholder="Enter new password" required>
             <input type="submit" name="update_pass" value="Update Password">
         </form>
     </div>

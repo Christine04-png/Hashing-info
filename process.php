@@ -40,15 +40,18 @@ if (isset($_POST['login'])) {
         $db_pass = $user['password'];
 
         if (password_verify($login_pass, $db_pass)) {
-            // Set session variables
+            // ✅ Set session variables
             $_SESSION['user'] = $login_email;
             $_SESSION['fullname'] = $user['fullname'];
             $_SESSION['phone'] = $user['phone'];
-            $_SESSION['role'] = $user['role']; // store role
+            $_SESSION['role'] = $user['role'];
+
+            // 🔥 ADD THIS LINE (THIS FIXES YOUR ERROR)
+            $_SESSION['user_id'] = $user['id'];
 
             // Redirect based on role
             if ($user['role'] == 'admin') {
-                echo "<script>alert('Login Successful!'); location.href='dashboard.php';</script>";
+                echo "<script>alert('Login Successful!'); location.href='admin/dashboard.php';</script>";
             } else {
                 echo "<script>alert('Login Successful!'); location.href='user_dashboard.php';</script>";
             }

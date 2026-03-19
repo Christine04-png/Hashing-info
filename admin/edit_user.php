@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "conn.php";
+include "../conn.php";
 if(!isset($_SESSION['user']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
     exit();
